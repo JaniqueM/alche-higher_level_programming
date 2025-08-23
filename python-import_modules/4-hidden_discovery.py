@@ -5,5 +5,5 @@ if __name__ == "__main__":
     hidden_4 = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(hidden_4)
     for name in sorted(dir(hidden_4)):
-        if not name.startswith(""):
+        if not name.startswith("__"):
             print(name)
