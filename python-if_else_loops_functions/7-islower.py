@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-def islower(C):
-    if ord("a") <= ord(c) <= ord("z")
-    return true
+def islower(c):
+    if ord('a') <= ord(c) <= ord('z'):
+        return True
     else:
-        return false
+        return False
