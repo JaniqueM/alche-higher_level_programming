@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Define a class Square based on 0-square.py"""
 
+
 class Square:
     """Represent a square"""
 
