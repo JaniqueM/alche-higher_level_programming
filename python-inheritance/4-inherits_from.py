@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 """
-This module provides a function to check if an object is an instance
-of a specified class or an instance of a subclass thereof.
+inherits_from.py
+
+This module provides a function to check whether an object is an instance
+of a class that inherited (directly or indirectly) from a specified class.
 """
 
-def is_kind_of_class(obj, a_class):
+def inherits_from(obj, a_class):
     """
-    Return True if the object is an instance of a_class or an instance
-    of a class that inherited from a_class; otherwise False.
+    Check if an object is an instance of a class that inherits from a_class.
 
     Parameters
     ----------
@@ -19,7 +20,8 @@ def is_kind_of_class(obj, a_class):
     Returns
     -------
     bool
-        True if obj is an instance of a_class or its subclass, False otherwise.
+        True if obj is an instance of a subclass of a_class (but not a_class itself),
+        False otherwise.
 
     Example
     -------
@@ -27,13 +29,16 @@ def is_kind_of_class(obj, a_class):
     ...     pass
     >>> class Derived(Base):
     ...     pass
-    >>> obj1 = Base()
-    >>> obj2 = Derived()
-    >>> is_kind_of_class(obj1, Base)
-    True
-    >>> is_kind_of_class(obj2, Base)
-    True
-    >>> is_kind_of_class(obj2, list)
+    >>> class MoreDerived(Derived):
+    ...     pass
+    >>> b = Base()
+    >>> d = Derived()
+    >>> m = MoreDerived()
+    >>> inherits_from(b, Base)
     False
+    >>> inherits_from(d, Base)
+    True
+    >>> inherits_from(m, Base)
+    True
     """
-    return isinstance(obj, a_class)
+    return issubclass(type(obj), a_class) and type(obj) != a_class
