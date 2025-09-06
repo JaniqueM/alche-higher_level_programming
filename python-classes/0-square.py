@@ -9,4 +9,3 @@ It does not include any attributes or methods.
 class Square:
     """Represent an empty square"""
     pass
-
