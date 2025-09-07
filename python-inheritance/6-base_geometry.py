@@ -1,14 +1,17 @@
 #!/usr/bin/python3
 """
-base_geometry.py
-
-This module defines an empty class BaseGeometry.
+This module defines the BaseGeometry class.
 """
+
 
 class BaseGeometry:
     """
-    BaseGeometry class serves as a base class for geometry-related classes.
-
-    Currently, it does not contain any methods or attributes.
+    BaseGeometry class provides a foundation for geometry-related operations.
     """
-    pass
+
+    def area(self):
+        """
+        Raises an Exception since area is not implemented.
+        This method should be overridden by subclasses.
+        """
+        raise Exception("area() is not implemented")
