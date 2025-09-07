@@ -1,50 +1,27 @@
 #!/usr/bin/python3
-"""
-This module defines the Rectangle class, which inherits from BaseGeometry.
-
-The Rectangle class validates width and height, computes the area, and provides
-a string representation of the rectangle.
-"""
-
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
+"""Base geometry module with common interfaces and validators."""
 
 
-class Rectangle(BaseGeometry):
-    """
-    Rectangle defined by width and height.
-
-    Attributes:
-        __width (int): Private width, validated as a positive integer.
-        __height (int): Private height, validated as a positive integer.
-    """
-
-    def __init__(self, width, height):
-        """
-        Initialize a Rectangle with validated dimensions.
-
-        Args:
-            width (int): The rectangle width (must be > 0).
-            height (int): The rectangle height (must be > 0).
-        """
-        self.integer_validator("width", width)
-        self.__width = width
-        self.integer_validator("height", height)
-        self.__height = height
+class BaseGeometry:
+    """Base class for geometry-related operations and validations."""
 
     def area(self):
-        """
-        Calculate and return the area of the rectangle.
+        """Raise an Exception because area is not implemented."""
+        raise Exception("area() is not implemented")
 
-        Returns:
-            int: The area of the rectangle.
+    def integer_validator(self, name, value):
         """
-        return self.__width * self.__height
+        Validate that 'value' is an integer greater than 0.
 
-    def __str__(self):
-        """
-        Return a string representation of the rectangle.
+        Args:
+            name (str): Variable name used in error messages.
+            value (int): Value to validate.
 
-        Format:
-            [Rectangle] <width>/<height>
+        Raises:
+            TypeError: If value is not an integer.
+            ValueError: If value <= 0.
         """
-        return "[Rectangle] {}/{}".format(self.__width, self.__height)
+        if type(value) is not int:
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
