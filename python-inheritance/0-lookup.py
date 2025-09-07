@@ -11,6 +11,7 @@ lookup(obj)
     Returns a list of the names of attributes and methods of the object.
 """
 
+
 def lookup(obj):
     """
     Return a list of available attributes and methods of an object.
